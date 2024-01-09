@@ -14,13 +14,16 @@
    <p class="test">Test 4</p>
    <div>Test 5</div>
 
-   <script type="text/javascript">
-      var test = $('div.test');
-      for (var i = 0; i < test.length; i++) {
-         test.get(i).style.color = "blue"
-      }
+   <img src="1.jpg" alt="1" />
+   <img src="2.jpg" alt="2" title="2" />
 
-      setTimeout("$('p.test').get(0).style.color = 'green'", 2000);
+
+   <script type="text/javascript">
+      let test = $("div");
+      alert(test.length);
+
+      var img = $("img[title]");
+      alert(img.length);
    </script>
 </body>
 
