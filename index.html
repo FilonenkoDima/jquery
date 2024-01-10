@@ -7,30 +7,40 @@
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
    <script type="text/javascript">
-      function incSize(event) {
-         let width = Number(event.target.style.width.substring(0, event.target.style.width.length - 2));
-
-         event.target.style.width = (width + 5) + 'px';
-
-         $("<p>mouse coordinate on click: x - " + event.screenX + ", y - " + event.screenY + "</p>").insertAfter("div:last");
-      }
-
       $(document).ready(function () {
-         $("div").bind("click", incSize);
-         $(document).on("click", "p", function () {
-            alert("Test");
+         $(document).on("click", "#add_comment", function () {
+            var form = $("form[name='form']");
+            form.css("display", "block");
+            $("#add_comment").replaceWith(form);
          });
 
+         $(document).on("click", "input[name='send']", function () {
+            let comment = $("textarea[name='comment']").val();
+            // alert("save comment to database");
+            $("<p>" + comment + "</p>").appendTo("#comments");
+            $('#textarea').val('');
+         })
       });
 
    </script>
 </head>
 
 <body>
-   <div style="height: 50px; width: 50px; background-color: red;"></div>
-   <div style="height: 50px; width: 50px; background-color: green;"></div>
-   <div style="height: 50px; width: 50px; background-color: blue;"></div>
 
+   <div id="comments">
+      <p>Comment 1</p>
+      <p>Comment 2</p>
+      <p>Comment 3</p>
+
+   </div>
+
+   <form name="form" id="form" action="#" method="post" style="display: none;" onsubmit="return false">
+      <textarea id="textarea" name="comment" cols="50" rows="10"></textarea>
+      <br />
+      <input type="submit" name="send" value="Add comment" id="done" />
+   </form>
+
+   <a href="#" onclick="return false" id="add_comment">Add comment</a>
 </body>
 
 </html>
