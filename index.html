@@ -10,17 +10,19 @@
 
 <body>
 
-   <div id="div">
+   <div id="div" style="background-color: red;">
       Block
       <p>Paragraph</p>
    </div>
 
    <script type="text/javascript">
+      let block = $("#div").clone();
 
-      alert($("#div").html());
-      alert($("#div").text());
+      block.html("<p>New Paragraph</p>")
+      block.css("font-size", "40px");
+      block.css("width", "200px");
 
-      $("p").html("<p>New Paragraph</p>");
+      $("body").append(block);
    </script>
 </body>
 
