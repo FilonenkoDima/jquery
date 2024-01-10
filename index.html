@@ -5,37 +5,29 @@
    <meta charset="utf-8" />
    <title>jQuery</title>
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-   <script type="text/javascript">
-      function valid() {
-         let state = $("input[name='sex']:checked").val();
-         if (!state) return $("#message").html("<font style='color:red'>Select sex!</font><br />");
-
-         $("#message").hide();
-
-         alert(`Your state is ${state}.`)
-
-         if (state == "male")
-            $("#img").show();
-
-         var test = $("div, p");
-      }
-   </script>
 </head>
 
 <body>
+   <img src="1.jpg" class="asd" alt="picture" title="picture"><br />
+   <img src="2.jpg" alt="picture" title="picture"><br />
+   <img src="3.jpg"><br />
+   <img src="4.jpg"><br />
+   <img src="5.jpg" alt="picture" title="picture"><br />
 
-   <form name="form" id="form">
-      <label for="female">Female</label>
-      <input type="radio" id="female" name="sex" value="female" />
-      <label for="male">Male</label>
-      <input type="radio" id="male" name="sex" value="male" />
-      <br /><br />
-      <span id="message"></span>
+   <script type="text/javascript">
+      // $(":not(img[alt])").attr("alt", "jQuery");
+      $("img").not("img[alt]").attr("alt", "jQuery");
 
+      let elements = $("img");
+      let text = "";
 
-      <input type="button" id="done" onclick="return valid()" value="OK" />
-   </form>
-   <img src="1.jpg" style="display: none;" id="img" />
+      for (let i = 0; i < elements.length; i++) {
+         text += elements[i].alt + "\n";
+         text += elements[i].className + "\n";
+      }
+
+      alert(text);
+   </script>
 </body>
 
 </html>
