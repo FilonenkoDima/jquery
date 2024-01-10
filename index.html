@@ -10,19 +10,24 @@
 
 <body>
 
-   <div id="div" style="background-color: red;">
-      Block
+   <div id="div">
       <p>Paragraph</p>
    </div>
+   <div id="div_2">
+   </div>
+
+   <img src="1.png" alt=" " />
+   <img src="2.png" alt=" " />
+   <img src="3.png" alt=" " /><br />
+
+   <a href="">1</a>
+   <a href="">2</a>
 
    <script type="text/javascript">
-      let block = $("#div").clone();
+      $("div").append("<span>Just text</span>");
+      $("img").appendTo($("#div_2"))
 
-      block.html("<p>New Paragraph</p>")
-      block.css("font-size", "40px");
-      block.css("width", "200px");
-
-      $("body").append(block);
+      $("a").wrap("<p></p?");
    </script>
 </body>
 
