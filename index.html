@@ -7,25 +7,34 @@
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
    <script type="text/javascript">
-      $(document).ready(function () {
-         $(document).on("click", "#add_comment", function () {
-            var form = $("form[name='form']");
-            form.css("display", "block");
-            $("#add_comment").replaceWith(form);
+      function hideComments() {
+         $("#comments").fadeOut(1000, function () { //hide, fadeOut, fadeToggle, slideUp
+            $("#hide").hide();
+            $("#show").show();
          });
+      }
 
-         $(document).on("click", "input[name='send']", function () {
-            let comment = $("textarea[name='comment']").val();
-            // alert("save comment to database");
-            $("<p>" + comment + "</p>").appendTo("#comments");
-            $('#textarea').val('');
-         })
+      function showComments() {
+         $("#comments").fadeIn(1000, function () { //show, fadeIn, fadeToggle, slideDown
+            $("#hide").show();
+            $("#show").hide();
+         });
+      }
+
+
+      $(document).ready(function () {
+         $("#comments").show(1000, function () {
+            $("#hide").bind("click", hideComments);
+            $("#show").bind("click", showComments);
+         });
       });
-
    </script>
 </head>
 
 <body>
+
+   <a href="#" id="hide" onclick="return false">Hide comment</a>
+   <a href="#" id="show" style="display:none" onclick="return false">Show comment</a>
 
    <div id="comments">
       <p>Comment 1</p>
@@ -34,13 +43,6 @@
 
    </div>
 
-   <form name="form" id="form" action="#" method="post" style="display: none;" onsubmit="return false">
-      <textarea id="textarea" name="comment" cols="50" rows="10"></textarea>
-      <br />
-      <input type="submit" name="send" value="Add comment" id="done" />
-   </form>
-
-   <a href="#" onclick="return false" id="add_comment">Add comment</a>
 </body>
 
 </html>
