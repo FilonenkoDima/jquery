@@ -7,41 +7,23 @@
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
    <script type="text/javascript">
-      function hideComments() {
-         $("#comments").fadeOut(1000, function () { //hide, fadeOut, fadeToggle, slideUp
-            $("#hide").hide();
-            $("#show").show();
-         });
-      }
-
-      function showComments() {
-         $("#comments").fadeIn(1000, function () { //show, fadeIn, fadeToggle, slideDown
-            $("#hide").show();
-            $("#show").hide();
-         });
-      }
-
-
       $(document).ready(function () {
-         $("#comments").show(1000, function () {
-            $("#hide").bind("click", hideComments);
-            $("#show").bind("click", showComments);
-         });
+         $("#img").bind("click", function (event) {
+            $(event.target).parent().css("text-align", "center");
+            $(event.target).animate({
+               width: $(event.target).width() * 2,
+               height: $(event.target).height() * 2
+            }, 3000);
+         })
       });
    </script>
 </head>
 
 <body>
 
-   <a href="#" id="hide" onclick="return false">Hide comment</a>
-   <a href="#" id="show" style="display:none" onclick="return false">Show comment</a>
-
-   <div id="comments">
-      <p>Comment 1</p>
-      <p>Comment 2</p>
-      <p>Comment 3</p>
-
-   </div>
+   <p id="test">
+      <img src="1.jpg" alt="Picture" title="Picture" id="img" width="200px" />
+   </p>
 
 </body>
 
