@@ -10,27 +10,13 @@
 
 <body>
 
-   <div id="div">
-      <p>Paragraph</p>
-   </div>
-   <div id="div_2">
-   </div>
-
-   <img src="1.png" alt=" " />
-   <img src="2.png" alt=" " />
-   <img src="3.png" alt=" " /><br />
-
-   <a href="">1</a>
-   <a href="">2</a>
+   <div>Block</div>
 
    <script type="text/javascript">
-      $("div").append("<span>Just text</span>");
-      $("img").appendTo($("#div_2"))
+      $("<p>new text</p>").prependTo("div");
+      $("<p>new text</p>").insertBefore("div");
+      $("<p>new text</p>").insertAfter("div");
 
-      $("a").wrap("<p class='hrefs'></p?");
-
-      $("#div").remove();
-      $("#div_2").empty();
    </script>
 </body>
 
