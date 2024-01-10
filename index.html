@@ -7,18 +7,29 @@
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
    <script type="text/javascript">
-      function val() {
+      function incSize(event) {
+         let width = Number(event.target.style.width.substring(0, event.target.style.width.length - 2));
 
-         let text = $("#password").val();
-         alert(text);
+         event.target.style.width = (width + 5) + 'px';
+
+         $("<p>mouse coordinate on click: x - " + event.screenX + ", y - " + event.screenY + "</p>").insertAfter("div:last");
       }
+
+      $(document).ready(function () {
+         $("div").bind("click", incSize);
+         $(document).on("click", "p", function () {
+            alert("Test");
+         });
+
+      });
+
    </script>
 </head>
 
 <body>
-   <input type="text" name="text" id="text" />
-   <input type="password" name="password" id="password" />
-   <input type="button" onclick="return val()" value="Done" />
+   <div style="height: 50px; width: 50px; background-color: red;"></div>
+   <div style="height: 50px; width: 50px; background-color: green;"></div>
+   <div style="height: 50px; width: 50px; background-color: blue;"></div>
 
 </body>
 
