@@ -5,27 +5,33 @@
    <meta charset="utf-8" />
    <title>jQuery</title>
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-   <style>
-      .div_1 {
-         background-color: saddlebrown;
-      }
 
-      .div_2 {
-         background-color: goldenrod;
-      }
-   </style>
 </head>
 
 <body>
-   <div id="div">Text</div>
+
+   <div id="div">Block</div>
+
    <script type="text/javascript">
-      let div = prompt("1 or 2?");
-      while (div != 1 && div != 2) {
-         alert("Please enter 1 or 2");
-         div = prompt("1 or 2?");
-      }
-      $("#div").attr("class", "div_" + div);
-      alert($("#div").get(0).className);
+      $("#div").css("font-size", "25px");
+      $("#div").css("color", "red");
+
+      $("#div").css("width", "250px");
+
+      $("#div").css("background-color", function () {
+         return "blue";
+      });
+
+      $("#div").css("height", function () {
+         return $(this).width();
+      });
+
+      $("#div").css("height", function () {
+         let height = prompt("Enter height: ");
+         return height + "px";
+      });
+
+
    </script>
 </body>
 
