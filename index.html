@@ -7,24 +7,38 @@
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
    <script type="text/javascript">
+
       $(document).ready(function () {
-         $("#img").bind("click", function (event) {
-            $(event.target).parent().css("text-align", "center");
-            $(event.target).animate({
-               width: $(event.target).width() * 2,
-               height: $(event.target).height() * 2
-            }, 3000);
-         })
+
+         $("#addBlock").click(function () {
+            let randName = GetNumber(1, 700);
+            $("#blocks").prepend("<div class='block " + randName + "'>" + randName + "</div>");
+
+            $('.' + randName).css("background", "#" + GetNumber(0, 9) + GetNumber(0, 9) + GetNumber(0, 9) + GetNumber(0, 9) + GetNumber(0, 9) + GetNumber(0, 9));
+         });
+
+         function GetNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+         }
+
+
       });
    </script>
+
+   <style>
+      .block {
+         width: 200px;
+         height: 200px;
+         margin-bottom: 20px;
+         border-radius: 5px;
+         text-align: center;
+      }
+   </style>
 </head>
 
 <body>
-
-   <p id="test">
-      <img src="1.jpg" alt="Picture" title="Picture" id="img" width="200px" />
-   </p>
-
+   <button id="addBlock">Add Block</button> <br />
+   <div id="blocks"></div>
 </body>
 
 </html>
