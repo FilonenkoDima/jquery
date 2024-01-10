@@ -8,22 +8,23 @@
 </head>
 
 <body>
-   <div class="test">Test 1</div>
-   <div class="test">Test 2</div>
-   <p class="test">Test 3</p>
-   <p class="test">Test 4</p>
-   <div>Test 5</div>
 
-   <img src="1.jpg" alt="1" />
-   <img src="2.jpg" alt="2" title="2" />
+   <ul id="menu">
+      <li><a href="">Link 1</a></li>
+      <li><a href="">Link 2</a></li>
+      <li><a href="">Link 3</a></li>
+      <li><a href="">Link 4</a></li>
+      <li><a href="">Link 5</a></li>
+   </ul>
 
+   <li><a href="">Link 6</a></li>
 
    <script type="text/javascript">
-      let test = $("div");
-      alert(test.length);
+      let link = $("#menu li a:first");
+      alert(link.html());
 
-      var img = $("img[title]");
-      alert(img.length);
+      link = $("#menu li a:eq(2)");
+      alert(link.html());
    </script>
 </body>
 
