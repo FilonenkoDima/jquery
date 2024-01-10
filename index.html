@@ -10,28 +10,17 @@
 
 <body>
 
-   <div id="div">Block</div>
+   <div id="div">
+      Block
+      <p>Paragraph</p>
+   </div>
 
    <script type="text/javascript">
-      $("#div").css("font-size", "25px");
-      $("#div").css("color", "red");
 
-      $("#div").css("width", "250px");
+      alert($("#div").html());
+      alert($("#div").text());
 
-      $("#div").css("background-color", function () {
-         return "blue";
-      });
-
-      $("#div").css("height", function () {
-         return $(this).width();
-      });
-
-      $("#div").css("height", function () {
-         let height = prompt("Enter height: ");
-         return height + "px";
-      });
-
-
+      $("p").html("<p>New Paragraph</p>");
    </script>
 </body>
 
